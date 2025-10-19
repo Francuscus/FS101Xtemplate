@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish 101 - Course Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Alegreya', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        /* HEADER */
+        .hero {
+            background: linear-gradient(135deg, #0277BD 0%, #01579B 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .hero .course-info {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+        }
+        
+        /* WELCOME SECTION */
+        .welcome {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFDE7 100%);
+        }
+        
+        .welcome h2 {
+            color: #01579B;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .welcome p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #01579B;
+            margin-bottom: 15px;
+        }
+        
+        /* THREE ACTS SECTION */
+        .three-acts {
+            padding: 50px 40px;
+            background: white;
+        }
+        
+        .three-acts h2 {
+            color: #01579B;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .acts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .act-card {
+            border-radius: 15px;
+            padding: 30px;
+            border: 3px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .act-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .act-one {
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFDE7 100%);
+            border-color: #87CEEB;
+        }
+        
+        .act-two {
+            background: linear-gradient(135deg, #F3E5F5 0%, #FFF9C4 100%);
+            border-color: #8E24AA;
+        }
+        
+        .act-three {
+            background: linear-gradient(135deg, #E8F5E9 0%, #FFF9C4 100%);
+            border-color: #2E7D32;
+        }
+        
+        .act-card h3 {
+            color: #01579B;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        
+        .act-card .weeks {
+            color: #6A1B9A;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .act-card ul {
+            margin-left: 20px;
+            color: #5D4037;
+        }
+        
+        .act-card li {
+            margin: 8px 0;
+        }
+        
+        /* CLASS NAVIGATION */
+        .class-nav {
+            padding: 50px 40px;
+            background: #f8f9fa;
+        }
+        
+        .class-nav h2 {
+            color: #01579B;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .week-section {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 6px solid #0277BD;
+        }
+        
+        .week-section h3 {
+            color: #01579B;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .class-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .class-link {
+            display: block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFDE7 100%);
+            border: 2px solid #87CEEB;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #01579B;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .class-link:hover {
+            background: linear-gradient(135deg, #0277BD 0%, #01579B 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* RESOURCES SECTION */
+        .resources {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFFDE7 100%);
+        }
+        
+        .resources h2 {
+            color: #01579B;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #FDD835;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+        }
+        
+        .resource-card h3 {
+            color: #01579B;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .resource-card p {
+            color: #5D4037;
+            margin-bottom: 15px;
+        }
+        
+        .resource-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0277BD 0%, #01579B 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card a:hover {
+            background: linear-gradient(135deg, #01579B 0%, #0277BD 100%);
+            transform: scale(1.05);
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: #000000;
+            color: #FDD835;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .footer p {
+            color: white;
+            margin: 8px 0;
+        }
+        
+        .footer a {
+            color: #FDD835;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* QUICK ACTION BUTTON */
+        .quick-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .quick-action a {
+            display: block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #FDD835 0%, #FBC02D 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .quick-action a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .acts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-action {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h1>SPANISH 101</h1>
+            <div class="subtitle">A Lexically-Focused Approach to Spanish Language Learning</div>
+            <div class="course-info">
+                <strong>Instructor:</strong> [Your Name] | <strong>Semester:</strong> [Term & Year]
+            </div>
+        </div>
+        
+        <!-- WELCOME SECTION -->
+        <div class="welcome">
+            <h2>Bienvenidos / Welcome!</h2>
+            <p>This is not your typical Spanish class. Here, we focus on <strong>high-frequency vocabulary</strong>, <strong>perfect pronunciation</strong> through IPA (International Phonetic Alphabet), and <strong>spaced repetition</strong> techniques that ensure you retain what you learn.</p>
+            <p>By the end of this course, you will be able to converse at a Novice-High level, recall 250+ vocabulary words instantly, understand the nine verb conjugations, and confidently navigate your specialized topic in Spanish.</p>
+            <p><strong>Get ready for a different kind of language learning experience!</strong></p>
+        </div>
+        
+        <!-- THREE ACTS SECTION -->
+        <div class="three-acts">
+            <h2>Course Structure: The Three Acts</h2>
+            <div class="acts-grid">
+                <div class="act-card act-one">
+                    <h3>Act One: Building the Foundation</h3>
+                    <div class="weeks">Weeks 1-5 | Classes 1-10</div>
+                    <ul>
+                        <li>Establish daily routine & classroom structure</li>
+                        <li>Master IPA for pronunciation</li>
+                        <li>Learn mnemonics & Leitner box system</li>
+                        <li>Build cohort trust & community</li>
+                        <li>Acquire high-frequency vocabulary (70% fundamental)</li>
+                        <li>TPR (Total Physical Response) with gestures</li>
+                    </ul>
+                </div>
+                
+                <div class="act-card act-two">
+                    <h3>Act Two: The Grammar Tour</h3>
+                    <div class="weeks">Weeks 6-9 | Classes 11-18</div>
+                    <ul>
+                        <li>The Grammar Tour: spatial learning of tenses</li>
+                        <li>Basement = Past | Main Floor = Present & Subjunctive | Upstairs = Future</li>
+                        <li>Introduction to the 9 verb conjugations</li>
+                        <li>Vocabulary shift to 50-50 (fundamental vs. specialized)</li>
+                        <li>Integration of grammar into conversation</li>
+                        <li>Midterm performance assessment</li>
+                    </ul>
+                </div>
+                
+                <div class="act-card act-three">
+                    <h3>Act Three: Specialized Application</h3>
+                    <div class="weeks">Weeks 10-14 | Classes 19-28</div>
+                    <ul>
+                        <li>Focus on course-specific content (Costa Rica, Medical Spanish, etc.)</li>
+                        <li>Vocabulary shift to 20-80 (80% specialized topic)</li>
+                        <li>Real-world application of grammar & vocabulary</li>
+                        <li>Cultural immersion & context</li>
+                        <li>Final performance-based assessment</li>
+                        <li>Speaking like a confident 24-month-old!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CLASS NAVIGATION -->
+        <div class="class-nav">
+            <h2>Class Schedule</h2>
+            
+            <div class="week-section">
+                <h3>Week 1: The Foundation</h3>
+                <div class="class-links">
+                    <a href="class-01.html" class="class-link">Class 1 - Day 1</a>
+                    <a href="class-02.html" class="class-link">Class 2 - Day 2</a>
+                </div>
+            </div>
+            
+            <div class="week-section">
+                <h3>Week 2: Building the System</h3>
+                <div class="class-links">
+                    <a href="class-03.html" class="class-link">Class 3 - Day 3</a>
+                    <a href="class-04.html" class="class-link">Class 4 - Day 4</a>
+                </div>
+            </div>
+            
+            <div class="week-section">
+                <h3>Week 3: [Title TBD]</h3>
+                <div class="class-links">
+                    <a href="class-05.html" class="class-link">Class 5 - Day 5</a>
+                    <a href="class-06.html" class="class-link">Class 6 - Day 6</a>
+                </div>
+            </div>
+            
+            <div class="week-section">
+                <h3>Week 4: [Title TBD]</h3>
+                <div class="class-links">
+                    <a href="class-07.html" class="class-link">Class 7 - Day 7</a>
+                    <a href="class-08.html" class="class-link">Class 8 - Day 8</a>
+                </div>
+            </div>
+            
+            <div class="week-section">
+                <h3>Week 5: [Title TBD]</h3>
+                <div class="class-links">
+                    <a href="class-09.html" class="class-link">Class 9 - Day 9</a>
+                    <a href="class-10.html" class="class-link">Class 10 - Day 10</a>
+                </div>
+            </div>
+            
+            <!-- Add more weeks following the same pattern -->
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #FFF9C4; border-radius: 10px; border: 2px solid #FDD835;">
+                <p style="color: #01579B; font-size: 1.2em;"><strong>📚 Classes 11-28 coming soon!</strong></p>
+                <p style="color: #5D4037;">Continue building out the remaining weeks following this template structure.</p>
+            </div>
+        </div>
+        
+        <!-- RESOURCES SECTION -->
+        <div class="resources">
+            <h2>Course Resources & Tools</h2>
+            
+            <!-- IPA Pronunciation App -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #87CEEB;">
+                <h3 style="color: #01579B; font-size: 1.8em; margin-bottom: 15px;">📱 IPA Pronunciation App</h3>
+                <p style="color: #5D4037; margin-bottom: 20px; font-size: 1.1em;">Type any Spanish word and get IPA transcription in 4 different accents (Mexican, Argentinian, Spanish, Dominican).</p>
+                <iframe src="https://francuscus.github.io/spanish-accents/" 
+                        width="100%" 
+                        height="600px"
+                        style="border: 2px solid #87CEEB; border-radius: 10px; background: white;">
+                </iframe>
+            </div>
+            
+            <!-- Course Syllabus -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #FDD835;">
+                <h3 style="color: #01579B; font-size: 1.8em; margin-bottom: 15px;">📄 Course Syllabus</h3>
+                <p style="color: #5D4037; margin-bottom: 20px; font-size: 1.1em;">Complete course syllabus with grading breakdown, policies, and schedule.</p>
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR8YxMUJW-CAtbgP9r5UuMRINVM-xG2W0MXhlg89dJqeQXsBSyd2zsRG_BYeWN0xT67j5gKEouEUdZa/pubembed?start=false&loop=false&delayms=3000" 
+                        frameborder="0" 
+                        width="100%" 
+                        height="569" 
+                        allowfullscreen="true" 
+                        mozallowfullscreen="true" 
+                        webkitallowfullscreen="true"
+                        style="border: 2px solid #FDD835; border-radius: 10px;">
+                </iframe>
+            </div>
+            
+            <!-- Grammar Tour -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #8E24AA;">
+                <h3 style="color: #01579B; font-size: 1.8em; margin-bottom: 15px;">🗺️ Grammar Tour Guide</h3>
+                <p style="color: #5D4037; margin-bottom: 20px; font-size: 1.1em;">Interactive guide to the 9 verb conjugations through spatial learning (Basement = Past, Main Floor = Present & Subjunctive, Upstairs = Future).</p>
+                <iframe src="https://docs.google.com/document/d/e/2PACX-1vS-mQ6W__j0RImqPddj08ltzxAgfjWyJxswhhX2kxe7OupUz04iSzM6Kqlws0_mf7wPFRzU0pYkEy5C/pub?embedded=true" 
+                        width="100%" 
+                        height="600px"
+                        style="border: 2px solid #8E24AA; border-radius: 10px;">
+                </iframe>
+            </div>
+            
+            <!-- Vocabulary List -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #2E7D32;">
+                <h3 style="color: #01579B; font-size: 1.8em; margin-bottom: 15px;">📚 Vocabulary Lists</h3>
+                <p style="color: #5D4037; margin-bottom: 20px; font-size: 1.1em;">All vocabulary words organized by week with IPA pronunciation guides. This list updates automatically as new words are added!</p>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6u_BLs7KU0Tyq0m1ySlawgwGxIFLL-fGEBrmebB6k3cD6-opTZHGFLBjB9Emv70Me2gis95phy-z_/pubhtml?widget=true&headers=false" 
+                        width="100%" 
+                        height="600px"
+                        style="border: 2px solid #2E7D32; border-radius: 10px;">
+                </iframe>
+            </div>
+            
+            <!-- View My Grades - Placeholder -->
+            <div style="background: linear-gradient(135deg, #FFF9C4 0%, #FFFDE7 100%); padding: 30px; border-radius: 15px; margin-bottom: 30px; border: 3px solid #FDD835;">
+                <h3 style="color: #01579B; font-size: 1.8em; margin-bottom: 15px;">📊 View My Grades</h3>
+                <p style="color: #5D4037; margin-bottom: 15px; font-size: 1.1em;">Check your current grades, participation scores, and quiz results.</p>
+                <p style="color: #6A1B9A; font-weight: bold;">Coming Soon! Grade viewing portal will be available after Week 2.</p>
+                <a href="[Your Google Apps Script URL]" 
+                   style="display: inline-block; margin-top: 10px; padding: 12px 25px; background: linear-gradient(135deg, #0277BD 0%, #01579B 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: bold;">
+                    Check Grades (Available Soon)
+                </a>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <h3>Contact & Office Hours</h3>
+            <p><strong>Instructor:</strong> [Your Name]</p>
+            <p><strong>Email:</strong> <a href="mailto:your.email@institution.edu">your.email@institution.edu</a></p>
+            <p><strong>Office Hours:</strong> [Days & Times] | [Location/Zoom Link]</p>
+            <p style="margin-top: 20px; opacity: 0.8;">© [Year] | Spanish 101 Lexically-Focused Course</p>
+        </div>
+    </div>
+    
+    <!-- QUICK ACTION BUTTON -->
+    <div class="quick-action">
+        <a href="class-01.html">Start Class 1 →</a>
+    </div>
+</body>
+</html>
